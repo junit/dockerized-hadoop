@@ -1,5 +1,5 @@
-ARG VERSION=3.1.2
-FROM gradiant/hadoop-base:$VERSION
+ARG VERSION=3.2.4
+FROM junit/hadoop-base:$VERSION
 
 LABEL maintainer="cgiraldo@gradiant.org"
 LABEL organization="gradiant.org"

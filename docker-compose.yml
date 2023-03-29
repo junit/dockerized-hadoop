@@ -3,7 +3,7 @@ services:
   namenode:
     container_name: namenode
     hostname: namenode
-    image: gradiant/hdfs-namenode
+    image: junit/hdfs-namenode
     environment:
     - CLUSTER_NAME=hdfs-cluster
     - CORE_CONF_hadoop_proxyuser_root_hosts=*
@@ -15,7 +15,7 @@ services:
   datanode:
     container_name: datanode
     hostname: datanode
-    image: gradiant/hdfs-datanode
+    image: junit/hdfs-datanode
     environment:
     - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
     - CORE_CONF_hadoop_proxyuser_root_hosts=*

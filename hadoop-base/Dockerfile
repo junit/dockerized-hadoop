@@ -3,7 +3,6 @@ FROM openjdk:8-jdk-alpine as builder
 LABEL maintainer="cgiraldo@gradiant.org"
 LABEL organization="gradiant.org"
 
-
 RUN apk add --no-cache bash build-base maven autoconf automake libtool cmake zlib-dev openssl-dev fts-dev  libtirpc-dev && mkdir -p /opt
 # Building Protobuf 2.5.0
 RUN cd /opt && wget https://github.com/google/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.gz && \
@@ -18,7 +17,7 @@ RUN cd /opt/isa-l-2.27.0 && \
     cp bin/libisal.so bin/libisal.so.2 /lib/
 
 # building hadoop
-ARG version=3.1.2
+ARG version=3.2.4
 ENV HADOOP_VERSION=$version
 
 RUN apk add tar --no-cache libexecinfo-dev bzip2-dev snappy-dev zstd-dev openssl-dev git
@@ -47,7 +46,7 @@ FROM openjdk:8-jre-alpine as hadoop-base
 LABEL maintainer="cgiraldo@gradiant.org" \
       organization="gradiant.org"
 
-ARG VERSION=3.1.2
+ARG VERSION=3.2.4
 ENV HADOOP_VERSION=$VERSION \
     HADOOP_HOME=/opt/hadoop
 

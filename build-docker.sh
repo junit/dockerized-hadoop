@@ -1,11 +1,11 @@
 #!/bin/bash
 
-VERSION=3.1.2
+VERSION=3.2.4
 
-docker build --build-arg VERSION=$VERSION  --target hadoop-base -t gradiant/hadoop-base:$VERSION hadoop-base
-docker build --build-arg VERSION=$VERSION -t gradiant/hdfs-namenode:$VERSION hdfs-namenode
-docker build --build-arg VERSION=$VERSION -t gradiant/hdfs-datanode:$VERSION hdfs-datanode
+docker buildx build --progress plain --build-arg VERSION=$VERSION  --target hadoop-base -t junit/hadoop-base:$VERSION hadoop-base
+docker buildx build --progress plain --build-arg VERSION=$VERSION -t junit/hdfs-namenode:$VERSION hdfs-namenode
+docker buildx build --progress plain --build-arg VERSION=$VERSION -t junit/hdfs-datanode:$VERSION hdfs-datanode
 
-docker tag gradiant/hadoop-base:$VERSION gradiant/hadoop-base:latest
-docker tag gradiant/hdfs-namenode:$VERSION gradiant/hdfs-namenode:latest
-docker tag gradiant/hdfs-datanode:$VERSION gradiant/hdfs-datanode:latest
+docker tag junit/hadoop-base:$VERSION junit/hadoop-base:latest
+docker tag junit/hdfs-namenode:$VERSION junit/hdfs-namenode:latest
+docker tag junit/hdfs-datanode:$VERSION junit/hdfs-datanode:latest
