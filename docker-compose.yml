@@ -10,6 +10,10 @@ services:
     - CORE_CONF_hadoop_proxyuser_root_groups=*
     - HDFS_CONF_dfs_permissions_superusergroup=root
     - HDFS_CONF_dfs_replication=1
+    ports:
+    - 8020:8020
+    - 50070:50070
+    - 9870:9870
     volumes:
     - name:/hadoop/dfs/name
   datanode:

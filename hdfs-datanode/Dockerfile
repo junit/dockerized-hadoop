@@ -8,13 +8,15 @@ COPY run.sh /run.sh
 
 ENV HDFS_CONF_dfs_datanode_data_dir=file:///hadoop/dfs/data
 
-RUN adduser -D -S -u 1000 -G root hdfs && \
+RUN groupadd -g 114 -r hadoop && \
+    useradd --comment "Hadoop HDFS" -u 201 --shell /bin/bash -M -r --groups hadoop --home /var/lib/hadoop/hdfs hdfs && \
     mkdir -p /hadoop/dfs/data && \
-    chown -R hdfs:root /hadoop && \
-    chown -R hdfs:root $HADOOP_HOME && \
-    chown -R hdfs:root $HADOOP_CONF_DIR
+    chown -R hdfs:hadoop /hadoop && \
+    chown -LR hdfs:hadoop $HADOOP_HOME && \
+    chown -R hdfs:hadoop $HADOOP_CONF_DIR
 
 USER hdfs
+WORKDIR $HADOOP_HOME
 
 VOLUME /hadoop
 
