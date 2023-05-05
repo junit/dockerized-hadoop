@@ -77,8 +77,8 @@ We have testing scripts for single and multiple datanode deployments, just provi
 
 ```
 cd scripts/tests
-IMAGE_NAME=gradiant/hdfs:2.7.7 ./test-hdfs-single-datanode.sh
-IMAGE_NAME=gradiant/hdfs:2.7.7 ./test-hdfs-multiple-datanodes.sh
+IMAGE_NAME=junit/hdfs:3.2.4 ./test-hdfs-single-datanode.sh
+IMAGE_NAME=junit/hdfs:3.2.4 ./test-hdfs-multiple-datanodes.sh
 
 ```
 

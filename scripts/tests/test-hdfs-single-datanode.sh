@@ -2,7 +2,7 @@
 
 set -ex
 
-IMAGE_NAME="${IMAGE_NAME:-gradiant/hdfs:2.7.7}"
+IMAGE_NAME="${IMAGE_NAME:-junit/hdfs:3.2.4}"
 
 IMAGE_TAG="${IMAGE_NAME#*:}"
 IMAGE_REPO="${IMAGE_NAME%:*}"
