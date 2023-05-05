@@ -8,7 +8,7 @@ ARG arch=arm64v8
 ARG qemu_static=qemu-aarch64-static
 COPY ${qemu_static} /usr/bin/
 
-ARG VERSION=3.2.4
+ARG VERSION=3.3.5
 ENV HADOOP_VERSION=$VERSION \
     HADOOP_HOME=/opt/hadoop
 
