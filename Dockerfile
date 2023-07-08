@@ -16,8 +16,9 @@ ENV HADOOP_PREFIX=$HADOOP_HOME \
     HDFS_CONF_dfs_datanode_data_dir=file:///dfs/data \
     USER=hdfs
 
+ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get install -y curl procps build-essential autoconf automake libtool cmake zlib1g-dev pkg-config libssl-dev libsasl2-dev libsnappy1v5 libsnappy-dev bzip2 libbz2-dev fuse libfuse-dev libzstd-dev liblz4-tool nasm yasm && rm -rf /var/lib/apt/lists/* && \
+RUN apt-get update && apt-get install -y curl procps build-essential autoconf automake libtool cmake zlib1g-dev pkg-config libssl-dev libsasl2-dev libsnappy1v5 libsnappy-dev bzip2 libbz2-dev fuse libfuse-dev libzstd-dev liblz4-tool nasm yasm krb5-user libpam-krb5 && rm -rf /var/lib/apt/lists/* && \
     curl -SL https://github.com/intel/isa-l/archive/v2.30.0.tar.gz | tar xvz -C /opt && \
     cd /opt/isa-l-2.30.0 && \
     ./autogen.sh && \
